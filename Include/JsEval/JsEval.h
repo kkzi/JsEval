@@ -1,7 +1,3 @@
-use mujs now: more cross platform
-
-```cpp
-
 #pragma once
 
 #include "mujs.h"
@@ -13,10 +9,10 @@ static double eval_string_to_double(const std::string &expr, const std::map<std:
     auto J = js_newstate(NULL, NULL, 0);
 
     js_atpanic(J, [](js_State *J) {
-            auto text = js_tostring(J, -1);
-            js_pop(J, 1);
-            throw std::runtime_error(text);
-            });
+        auto text = js_tostring(J, -1);
+        js_pop(J, 1);
+        throw std::runtime_error(text);
+    });
 
     if (!vars.empty())
     {
@@ -39,6 +35,7 @@ static double eval_string_to_double(const std::string &expr, const std::map<std:
     return val;
 }
 
+/** usage and test **
 static void test()
 {
     {
@@ -59,5 +56,4 @@ static void test()
         std::cout << e.what() << std::endl;
     }
 }
-
-```
+**/

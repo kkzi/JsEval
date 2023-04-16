@@ -1,9 +1,5 @@
-cmake_minimum_required(VERSION 3.1)
-project(quickjs)
+project(JsEval)
 
-
-set(CMAKE_C_STANDARD 23)
-set(CMAKE_CXX_STANDARD 20)
-
-add_subdirectory(quickjs)
-add_subdirectory(demo)
+include_directories(Include/${PROJECT_NAME})
+add_library(${PROJECT_NAME} STATIC Src/one.c)
+target_include_directories(${PROJECT_NAME} PUBLIC Include)
